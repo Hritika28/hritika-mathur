@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hritika Mathur — Software Engineer</title>
+<meta name="description" content="Hritika Mathur, SDE-2. Backend systems, full-stack modernization, and AI-augmented engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#E9EEF8;
+  --paper:#FFFFFF;
+  --ink:#1B1F3B;
+  --ink-2:#4A5070;
+  --cobalt:#2E5BFF;
+  --pink:#FF4F9A;
+  --sun:#FFD23F;
+  --mint:#3DD6A8;
+  --line:#CDD5E8;
+  --r-lg:22px; --r-sm:10px;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Instrument Sans", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--sky);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--cobalt)}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:6px}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--sky) 85%,transparent);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 22px/1 var(--display);color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--sun);font-size:16px}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+nav ul a{display:block;padding:8px 14px;border-radius:99px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+nav ul a:hover{background:var(--paper)}
+@media (max-width:720px){nav ul li:not(:last-child){display:none}}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hello{font:500 18px/1.4 var(--body);color:var(--ink-2);margin:0 0 8px}
+.name{font-family:var(--display);font-size:clamp(64px,13vw,168px);line-height:.88;letter-spacing:-.03em;margin:0;font-variation-settings:"wght" 500,"wdth" 100,"opsz" 96;user-select:none;cursor:default}
+.name .ch{display:inline-block;transition:font-variation-settings .18s ease,color .18s ease}
+.name .row{display:block;white-space:nowrap}
+.name .row:last-child{color:var(--cobalt)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;margin-top:40px;align-items:start}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.lede{font-size:21px;line-height:1.5;max-width:30ch;margin:0 0 24px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}
+.facts li{background:var(--paper);border-radius:99px;padding:6px 14px;font-size:15px;font-weight:500}
+.facts li b{color:var(--pink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);background:var(--ink);color:#fff;padding:12px 22px;border-radius:99px;font-weight:600;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+
+/* console */
+.console{background:var(--ink);color:#E6E9FF;border-radius:var(--r-lg);overflow:hidden;box-shadow:12px 12px 0 var(--sun)}
+.console-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #2E3460}
+.dot{width:12px;height:12px;border-radius:50%}
+.console-top p{margin:0 0 0 8px;font:500 13px var(--mono);color:#8D94C4}
+.endpoints{display:flex;flex-wrap:wrap;gap:6px;padding:14px 16px 0}
+.endpoints button{background:#2A3060;color:#E6E9FF;border:0;border-radius:8px;padding:6px 10px;font:500 13px var(--mono)}
+.endpoints button[aria-pressed="true"]{background:var(--sun);color:var(--ink)}
+.screen{font:400 14px/1.65 var(--mono);padding:16px;height:300px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.screen .cmd{color:var(--mint)}
+.screen .k{color:#8FB0FF}
+.screen .s{color:#FFB3D4}
+.screen .n{color:var(--sun)}
+.screen .dim{color:#8D94C4}
+.prompt{display:flex;align-items:center;gap:8px;padding:10px 16px 14px;border-top:1px solid #2E3460;font:400 14px var(--mono)}
+.prompt label{color:var(--mint)}
+.prompt input{flex:1;background:transparent;border:0;color:#fff;font:inherit;outline:none;min-width:0}
+.prompt input::placeholder{color:#636A9A}
+.caret{display:inline-block;width:8px;height:16px;background:var(--sun);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* stickers */
+.hero-top{position:relative}
+.stickers{position:absolute;inset:0;pointer-events:none}
+.sticker{position:absolute;width:var(--s,96px);height:var(--s,96px);pointer-events:auto;cursor:grab;touch-action:none;transform:rotate(var(--rot,0deg));transition:transform .2s;filter:drop-shadow(4px 5px 0 rgba(27,31,59,.18))}
+.sticker:hover{transform:rotate(var(--rot,0deg)) scale(1.08)}
+.sticker.dragging{cursor:grabbing;transition:none;transform:rotate(0deg) scale(1.15);z-index:5}
+.sticker svg{width:100%;height:100%;display:block}
+.sticker-hint{position:absolute;right:0;bottom:-8px;margin:0;font-size:14px;color:var(--ink-2)}
+@media (max-width:720px){.sticker{--s:58px!important}.sticker.hide-sm{display:none}.sticker-hint{position:static;margin-top:12px}}
+.sticker.wiggle{animation:wiggle .6s ease}
+@keyframes wiggle{25%{transform:rotate(calc(var(--rot,0deg) - 12deg))}75%{transform:rotate(calc(var(--rot,0deg) + 12deg))}}
+
+/* section heads */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.sec-head .art{width:120px;height:120px;flex:none;margin-bottom:8px}
+@media (max-width:720px){.sec-head .art{width:72px;height:72px}}
+
+/* sections */
+section{padding:72px 0}
+h2{font:700 clamp(34px,5vw,54px)/1.02 var(--display);letter-spacing:-.02em;margin:0 0 12px;font-variation-settings:"wdth" 88}
+.sub{color:var(--ink-2);max-width:56ch;margin:0 0 36px;font-size:18px}
+
+/* races */
+.races{display:grid;gap:18px}
+.race{background:var(--paper);border-radius:var(--r-lg);padding:24px 26px;display:grid;grid-template-columns:260px 1fr auto;gap:28px;align-items:center}
+@media (max-width:860px){.race{grid-template-columns:1fr;gap:16px}}
+.race h3{font:700 22px/1.15 var(--display);margin:0 0 4px}
+.race p{margin:0;color:var(--ink-2);font-size:15px}
+.lanes{display:grid;gap:10px}
+.lane{display:grid;grid-template-columns:62px 1fr 64px;align-items:center;gap:12px;font-size:14px;font-weight:500}
+.track{height:18px;background:var(--sky);border-radius:99px;overflow:hidden}
+.fill{height:100%;width:0;border-radius:99px}
+.lane.old .fill{background:#A9B3D3}
+.lane.new .fill{background:var(--cobalt)}
+.time{font:600 13px var(--mono);text-align:right;color:var(--ink-2)}
+.race-side{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:120px}
+.big{font:800 44px/1 var(--display);color:var(--pink);opacity:.15;transition:opacity .3s}
+.big.on{opacity:1}
+.run{background:var(--sun);border:0;border-radius:99px;padding:8px 18px;font-weight:600;color:var(--ink)}
+.run:disabled{opacity:.5;cursor:default}
+.race-all{margin-top:20px}
+
+/* timeline */
+.career{display:grid;grid-template-columns:300px 1fr;gap:28px}
+@media (max-width:860px){.career{grid-template-columns:1fr}}
+.stops{list-style:none;margin:0;padding:0 0 0 22px;position:relative}
+.stops::before{content:"";position:absolute;left:7px;top:14px;bottom:14px;width:3px;background:var(--line);border-radius:3px}
+.stops li{position:relative;margin-bottom:6px}
+.stops button{width:100%;text-align:left;background:transparent;border:0;border-radius:14px;padding:12px 16px;color:var(--ink)}
+.stops button::before{content:"";position:absolute;left:-21px;top:20px;width:15px;height:15px;border-radius:50%;background:var(--sky);border:3px solid var(--line);transition:.2s}
+.stops button[aria-selected="true"]{background:var(--paper)}
+.stops button[aria-selected="true"]::before{background:var(--pink);border-color:var(--pink);transform:scale(1.2)}
+.stops strong{display:block;font:700 19px/1.2 var(--display)}
+.stops small{color:var(--ink-2);font-size:14px}
+.role{background:var(--paper);border-radius:var(--r-lg);padding:32px}
+.role header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;margin-bottom:20px}
+.role h3{font:700 30px/1.1 var(--display);margin:0}
+.role .meta{color:var(--ink-2);font-size:15px;margin:4px 0 0}
+.badge{align-self:flex-start;background:var(--sky);border-radius:99px;padding:6px 14px;font-weight:600;font-size:14px}
+.role ul{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.role li{padding-left:22px;position:relative}
+.role li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:3px;background:var(--sun);transform:rotate(45deg)}
+.role li b{display:block;font-weight:600}
+.role li span{color:var(--ink-2)}
+.role.swap{animation:pop .35s ease}
+@keyframes pop{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* skills */
+.skill-wrap{display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start}
+@media (max-width:860px){.skill-wrap{grid-template-columns:1fr}}
+.groups{display:grid;gap:22px}
+.group h3{font:600 15px var(--body);color:var(--ink-2);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--paper);border:2px solid transparent;border-radius:99px;padding:7px 14px;font-weight:500;font-size:15px;color:var(--ink);transition:.15s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.where{background:var(--paper);border-radius:var(--r-lg);padding:24px;position:sticky;top:84px}
+.where h3{font:700 22px/1.2 var(--display);margin:0 0 4px}
+.where p{margin:0 0 16px;color:var(--ink-2);font-size:15px}
+.where ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.where li{border-radius:12px;padding:10px 14px;background:var(--sky);color:#9AA2BF;font-weight:600;transition:.2s}
+.where li.hit{background:var(--cobalt);color:#fff}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){.projects{grid-template-columns:1fr}}
+.proj{background:var(--paper);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:18px}
+.proj h3{font:700 28px/1 var(--display);margin:0}
+.proj p{margin:0;color:var(--ink-2)}
+.toy{background:var(--sky);border-radius:16px;padding:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.toy-label{font-size:13px;color:var(--ink-2);margin:0 0 -6px}
+.ring{width:120px;height:120px;flex:none;position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:700 22px/1 var(--display)}
+.ring .val small{display:block;font:500 12px var(--body);color:var(--ink-2)}
+.toy-btns{display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:180px}
+.toy-btns button{background:var(--paper);border:0;border-radius:99px;padding:7px 12px;font-size:14px;font-weight:500}
+.toy-btns button:hover{background:var(--ink);color:#fff}
+.bars{display:flex;gap:10px;align-items:flex-end;height:110px;flex:none}
+.bar{width:30px;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.bar i{display:block;width:100%;border-radius:8px 8px 4px 4px;transition:height .35s cubic-bezier(.3,1.4,.6,1);min-height:4px}
+.bar small{font-size:11px;color:var(--ink-2)}
+.toy .reset{background:transparent;text-decoration:underline;color:var(--ink-2)}
+
+/* education + contact */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:720px){.edu{grid-template-columns:1fr}}
+.edu div{background:var(--paper);border-radius:var(--r-lg);padding:24px 26px}
+.edu h3{font:700 22px/1.2 var(--display);margin:0 0 6px}
+.edu p{margin:0;color:var(--ink-2)}
+.contact{background:var(--ink);color:#fff;border-radius:32px;padding:56px 48px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+@media (max-width:860px){.contact{grid-template-columns:1fr;padding:40px 28px}}
+.contact h2{color:#fff}
+.contact h2 span{color:var(--sun)}
+.contact p{color:#C2C7E6;margin:0;max-width:42ch}
+.links{display:grid;gap:12px}
+.links a,.links button{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#2A3060;color:#fff;border:0;border-radius:16px;padding:16px 20px;text-decoration:none;font-weight:500;text-align:left}
+.links a:hover,.links button:hover{background:var(--cobalt)}
+.links em{font-style:normal;color:var(--sun);font-size:14px}
+footer{padding:36px 0 48px;color:var(--ink-2);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+kbd{font:600 12px var(--mono);background:var(--paper);border-radius:6px;padding:2px 6px;border:1px solid var(--line)}
+
+/* confetti */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.confetti i{position:absolute;top:-20px;width:10px;height:14px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-weight:500;z-index:60;transition:transform .3s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top"><span>H</span>Hritika</a>
+    <ul>
+      <li><a href="#wins">Wins</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Say hi</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+    <p class="hello">Hi, I'm</p>
+    <h1 class="name" id="name" aria-label="Hritika Mathur"><span class="row">Hritika</span><span class="row">Mathur</span></h1>
+    <div class="stickers" id="stickers" aria-hidden="true">
+      <!-- server with a face -->
+      <div class="sticker" data-tip="Backends, but friendly" style="--s:120px;--rot:-8deg;left:66%;top:-6%">
+        <svg viewBox="0 0 120 120"><rect x="22" y="14" width="76" height="92" rx="14" fill="#2E5BFF" stroke="#1B1F3B" stroke-width="4"/>
+        <rect x="32" y="26" width="56" height="18" rx="6" fill="#fff"/><rect x="32" y="50" width="56" height="18" rx="6" fill="#fff"/><rect x="32" y="74" width="56" height="18" rx="6" fill="#fff"/>
+        <circle cx="42" cy="35" r="3.5" fill="#3DD6A8"/><circle cx="42" cy="59" r="3.5" fill="#3DD6A8"/><circle cx="42" cy="83" r="3.5" fill="#FF4F9A"/>
+        <circle cx="64" cy="57" r="3" fill="#1B1F3B"/><circle cx="78" cy="57" r="3" fill="#1B1F3B"/><path d="M64 63 q7 6 14 0" stroke="#1B1F3B" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      </div>
+      <!-- chai -->
+      <div class="sticker" data-tip="Powered by chai" style="--s:104px;--rot:10deg;left:84%;top:18%">
+        <svg viewBox="0 0 120 120"><path d="M46 30 q-6 -10 0 -18 M60 30 q-6 -10 0 -18 M74 30 q-6 -10 0 -18" stroke="#1B1F3B" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M28 40 h64 l-6 52 q-2 12 -14 12 h-24 q-12 0 -14 -12z" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M92 50 q18 0 14 18 q-3 12 -18 12" fill="none" stroke="#1B1F3B" stroke-width="4"/>
+        <path d="M34 56 h52" stroke="#1B1F3B" stroke-width="3" stroke-dasharray="4 6" stroke-linecap="round"/>
+        <circle cx="50" cy="74" r="3" fill="#1B1F3B"/><circle cx="68" cy="74" r="3" fill="#1B1F3B"/><path d="M54 82 q5 4 10 0" stroke="#1B1F3B" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      </div>
+      <!-- lightning -->
+      <div class="sticker" data-tip="60% faster" style="--s:92px;--rot:-14deg;left:72%;top:50%">
+        <svg viewBox="0 0 120 120"><path d="M68 8 L26 66 h30 l-10 46 l48 -64 h-32 z" fill="#FF4F9A" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round"/></svg>
+      </div>
+      <!-- braces -->
+      <div class="sticker hide-sm" data-tip="Clean code club" style="--s:96px;--rot:6deg;left:90%;top:58%">
+        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" fill="#3DD6A8" stroke="#1B1F3B" stroke-width="4"/>
+        <path d="M48 34 q-10 0 -10 10 v8 q0 8 -8 8 q8 0 8 8 v8 q0 10 10 10 M72 34 q10 0 10 10 v8 q0 8 8 8 q-8 0 -8 8 v8 q0 10 -10 10" stroke="#1B1F3B" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <!-- sparkle -->
+      <div class="sticker hide-sm" data-tip="AI-augmented ✨" style="--s:70px;--rot:0deg;left:58%;top:40%">
+        <svg viewBox="0 0 120 120"><path d="M60 6 q8 46 54 54 q-46 8 -54 54 q-8 -46 -54 -54 q46 -8 54 -54z" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <p class="sticker-hint">The stickers move. Drag them around.</p>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <p class="lede">I'm a software engineer who makes backends faster, legacy code friendlier, and teams quicker with AI tooling.</p>
+        <ul class="facts">
+          <li><b>6.5+</b> years shipping</li>
+          <li>SDE-2 at PeopleGrove</li>
+          <li>Gurgaon, India</li>
+          <li>POD lead &amp; mentor</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="#career">See my work</a>
+        </div>
+      </div>
+
+      <div class="console" aria-label="Interactive API console">
+        <div class="console-top">
+          <i class="dot" style="background:#FF5F57"></i><i class="dot" style="background:#FEBC2E"></i><i class="dot" style="background:#28C840"></i>
+          <p>api.hritika — try an endpoint or type <span style="color:var(--sun)">help</span></p>
+        </div>
+        <div class="endpoints" role="group" aria-label="Endpoints">
+          <button data-ep="whoami" aria-pressed="true">/whoami</button>
+          <button data-ep="now" aria-pressed="false">/now</button>
+          <button data-ep="stack" aria-pressed="false">/stack</button>
+          <button data-ep="wins" aria-pressed="false">/wins</button>
+          <button data-ep="hire" aria-pressed="false">/hire</button>
+        </div>
+        <div class="screen" id="screen" aria-live="polite"></div>
+        <form class="prompt" id="prompt" autocomplete="off">
+          <label for="cmd">$</label>
+          <input id="cmd" placeholder="type a command, like help or sudo hire hritika" spellcheck="false">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="wins">
+  <div class="wrap">
+    <div class="sec-head"><h2>Things I made faster</h2><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><rect x="52" y="6" width="16" height="12" rx="3" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="60" cy="66" r="44" fill="#fff" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="60" cy="66" r="34" fill="#E9EEF8"/><path d="M60 66 L84 46" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="5"/><circle cx="60" cy="66" r="6" fill="#FF4F9A" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M8 50 h14 M4 66 h12 M8 82 h14" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke="#2E5BFF"/></svg></div>
+    <p class="sub">Press Run to replay each improvement. The bars run at the real before/after ratios, sped up so you don't have to wait.</p>
+    <div class="races" id="races"></div>
+    <button class="btn race-all" id="raceAll">Run all three</button>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-head"><h2>Where I've worked</h2><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><path d="M14 104 q20 -40 46 -30 t46 -50" fill="none" stroke="#2E5BFF" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/><circle cx="14" cy="104" r="8" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="74" r="8" fill="#3DD6A8" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M96 10 c-12 0 -18 9 -18 18 c0 14 18 30 18 30 s18 -16 18 -30 c0 -9 -6 -18 -18 -18z" fill="#FF4F9A" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="96" cy="28" r="6" fill="#fff" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-width="3"/></svg></div>
+    <p class="sub">Four teams, from a graduate trainee in Jaipur to primary engineer for a POD building a clinical education platform. Pick a stop.</p>
+    <div class="career">
+      <ul class="stops" role="tablist" aria-label="Roles" id="stops"></ul>
+      <article class="role" id="role" role="tabpanel" aria-live="polite"></article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>What I build with</h2><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><rect x="14" y="74" width="44" height="32" rx="6" fill="#2E5BFF" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="62" y="74" width="44" height="32" rx="6" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="38" y="38" width="44" height="32" rx="6" fill="#3DD6A8" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><rect x="50" y="6" width="28" height="28" rx="6" fill="#FF4F9A" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" transform="rotate(14 64 20)"/><circle cx="26" cy="84" r="3" fill="#fff"/><circle cx="74" cy="84" r="3" fill="#1B1F3B"/><circle cx="50" cy="48" r="3" fill="#1B1F3B"/></svg></div>
+    <p class="sub">Click a skill to see where I've put it to work.</p>
+    <div class="skill-wrap">
+      <div class="groups" id="groups"></div>
+      <aside class="where" aria-live="polite">
+        <h3 id="whereTitle">Pick a skill</h3>
+        <p id="whereNote">The roles where I used it will light up.</p>
+        <ul id="whereList"></ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Side projects</h2><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><rect x="10" y="18" width="70" height="92" rx="12" fill="#fff" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="45" cy="54" r="20" fill="none" stroke="#E9EEF8" stroke-width="10"/><path d="M45 34 a20 20 0 0 1 19 26" fill="none" stroke="#3DD6A8" stroke-width="10"/><path d="M24 88 h42 M24 98 h28" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="3"/><rect x="66" y="40" width="44" height="60" rx="10" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M76 88 v-12 M86 88 v-22 M96 88 v-16" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="5"/></svg></div>
+    <p class="sub">Two personal apps I built for myself. Below each one is a tiny playable toy version.</p>
+    <div class="projects">
+      <article class="proj">
+        <h3>Nourrish</h3>
+        <p>A calorie and nutrition tracker with daily intake logging, live macronutrient breakdowns, and visual progress reports for long-term fitness goals.</p>
+        <p class="toy-label">Toy version: log a snack</p>
+        <div class="toy">
+          <div class="ring">
+            <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#fff" stroke-width="14"/>
+              <circle id="ringFg" cx="60" cy="60" r="50" fill="none" stroke="var(--mint)" stroke-width="14" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" style="transition:stroke-dashoffset .5s ease,stroke .3s"/>
+            </svg>
+            <div class="val"><span><span id="kcal">0</span><small>of 2000 kcal</small></span></div>
+          </div>
+          <div class="toy-btns" id="food">
+            <button data-k="110">Masala chai</button>
+            <button data-k="260">Poha</button>
+            <button data-k="320">Dal chawal</button>
+            <button data-k="150">Samosa</button>
+            <button data-k="90">Apple</button>
+            <button class="reset" data-k="0">Reset</button>
+          </div>
+        </div>
+      </article>
+      <article class="proj">
+        <h3>Expense &amp; Budget Tracker</h3>
+        <p>A responsive app that categorizes daily spending, automates recurring monthly budget calculations, and generates visual expenditure summaries.</p>
+        <p class="toy-label">Toy version: spend ₹500 somewhere</p>
+        <div class="toy">
+          <div class="bars" id="bars" aria-hidden="true"></div>
+          <div class="toy-btns" id="spend">
+            <button data-c="0">Food</button>
+            <button data-c="1">Travel</button>
+            <button data-c="2">Books</button>
+            <button data-c="3">Fun</button>
+            <button class="reset" data-c="-1">Reset</button>
+          </div>
+          <p id="spendTotal" style="margin:0;width:100%;font-weight:600">Spent ₹0 of ₹5,000</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>Education</h2><svg class="art" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 22 L112 46 L60 70 L8 46z" fill="#1B1F3B" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M30 58 v24 q30 18 60 0 v-24 L60 72z" fill="#2E5BFF" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M104 50 v30" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none"/><circle cx="104" cy="86" r="7" fill="#FFD23F" stroke="#1B1F3B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+    <p class="sub">Computer science, studied in Jaipur.</p>
+    <div class="edu">
+      <div><h3>B.Tech, Computer Science &amp; Engineering</h3><p>Amity University Rajasthan, Jaipur. Graduated June 2020.</p></div>
+      <div><h3>Higher Secondary (Class XII, Science)</h3><p>St. Anselm's North City School, Jaipur. Completed June 2016.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <svg viewBox="0 0 120 120" aria-hidden="true" style="width:96px;height:96px;margin-bottom:12px"><path d="M8 58 L112 12 L84 106 L58 72z" fill="#FFD23F" stroke="#fff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M112 12 L58 72 L54 100 L68 82" fill="#FF4F9A" stroke="#fff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></svg><h2>Let's build something good.</h2>
+        <p>I'm open to conversations about backend architecture, platform modernization, and AI-augmented engineering teams.</p>
+      </div>
+      <div class="links">
+        <button id="copyEmail" type="button">mathurhritika@gmail.com <em>Copy email</em></button>
+        <a href="https://www.linkedin.com/in/hritika-mathur" target="_blank" rel="noopener">linkedin.com/in/hritika-mathur <em>Open LinkedIn</em></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hritika Mathur</span>
+    <span>Psst: try the <kbd>↑</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>↓</kbd> keys anywhere</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = s => document.querySelector(s);
+
+/* ---------- toast ---------- */
+let toastT;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2200);}
+
+/* ---------- name: letters respond to cursor ---------- */
+const nameEl = $('#name');
+nameEl.querySelectorAll('.row').forEach(row=>{
+  const txt=row.textContent;row.textContent='';
+  [...txt].forEach(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c;s.setAttribute('aria-hidden','true');row.appendChild(s);});
+});
+const chars=[...nameEl.querySelectorAll('.ch')];
+function weigh(x,y){
+  chars.forEach(c=>{
+    const r=c.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;
+    const d=Math.hypot(x-cx,y-cy);const t=Math.max(0,1-d/260);
+    const w=Math.round(300+500*t), wd=Math.round(100-22*t);
+    c.style.fontVariationSettings=`"wght" ${w}, "wdth" ${wd}, "opsz" 96`;
+  });
+}
+if(!reduce){
+  window.addEventListener('pointermove',e=>{
+    const r=nameEl.getBoundingClientRect();
+    if(e.clientY>r.top-200&&e.clientY<r.bottom+200) weigh(e.clientX,e.clientY);
+  },{passive:true});
+}
+
+/* ---------- console ---------- */
+const data={
+  whoami:{name:"Hritika Mathur",role:"Software Development Engineer II",experience_years:6.5,based_in:"Gurgaon, India",good_at:["scalable backends","full-stack modernization","AI-augmented engineering"]},
+  now:{company:"PeopleGrove",since:"Sept 2025",role:"primary engineer for my POD",product:"CORE ELMS",what_it_is:"clinical experiential education LMS for Nursing, Pharmacy & Allied Health",mentoring:3,working:"remote"},
+  stack:{languages:["PHP","JavaScript","Python","SQL"],frameworks:["Laravel","React","Vue.js","CodeIgniter"],cloud:["AWS EC2","RDS","Aurora","DynamoDB","Docker"],ai_tooling:["Claude","Cursor","MCP servers","custom agent skills","Copilot"]},
+  wins:{homepage_latency:"-60% (Dexter analytics)",daily_report_pipeline:"-75% runtime (PHP → Python + Docker)",page_load:"-30% (Internshala)",accessibility:"WCAG 2.2 compliant",upgrades:"Laravel 5.7 → 10.x, PHP 7.3 → 8.4"},
+  hire:{status:200,message:"Great idea.",email:"mathurhritika@gmail.com",linkedin:"linkedin.com/in/hritika-mathur"}
+};
+const screen=$('#screen');
+let typing=0;
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function jsonHTML(o){
+  return esc(JSON.stringify(o,null,2))
+    .replace(/"([^"]+)":/g,'<span class="k">"$1"</span>:')
+    .replace(/: "([^"]*)"/g,': <span class="s">"$1"</span>')
+    .replace(/(\n\s+)"([^"]*)"(,?)/g,'$1<span class="s">"$2"</span>$3')
+    .replace(/: (\d+\.?\d*)/g,': <span class="n">$1</span>');
+}
+function typeOut(cmdLine,html){
+  const my=++typing;
+  screen.innerHTML='<span class="cmd">$ '+esc(cmdLine)+'</span>\n<span class="dim">200 OK · 12ms</span>\n';
+  const box=document.createElement('span');screen.appendChild(box);
+  const caret=document.createElement('span');caret.className='caret';screen.appendChild(caret);
+  if(reduce){box.innerHTML=html;return;}
+  // reveal by plain-text length while keeping markup
+  const tmp=document.createElement('div');tmp.innerHTML=html;const total=tmp.textContent.length;
+  let n=0;
+  (function step(){
+    if(my!==typing)return;
+    n=Math.min(total,n+4);
+    box.innerHTML=truncateHTML(html,n);
+    screen.scrollTop=screen.scrollHeight;
+    if(n<total)requestAnimationFrame(step);
+  })();
+}
+function truncateHTML(html,limit){
+  let out='',count=0,i=0;const open=[];
+  while(i<html.length&&count<limit){
+    if(html[i]==='<'){const j=html.indexOf('>',i);const tag=html.slice(i,j+1);out+=tag;
+      if(tag.startsWith('</'))open.pop();else open.push(tag);i=j+1;}
+    else if(html[i]==='&'){const j=html.indexOf(';',i);out+=html.slice(i,j+1);count++;i=j+1;}
+    else{out+=html[i];count++;i++;}
+  }
+  return out+'</span>'.repeat(open.length);
+}
+function hit(ep){
+  document.querySelectorAll('.endpoints button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ep===ep));
+  typeOut('curl api.hritika/'+ep,jsonHTML(data[ep]));
+}
+document.querySelectorAll('.endpoints button').forEach(b=>b.addEventListener('click',()=>hit(b.dataset.ep)));
+hit('whoami');
+
+const cmdIn=$('#cmd');
+$('#prompt').addEventListener('submit',e=>{
+  e.preventDefault();
+  const raw=cmdIn.value.trim();cmdIn.value='';if(!raw)return;
+  const c=raw.toLowerCase().replace(/^\//,'');
+  const ep=c.replace(/^curl\s+(api\.hritika)?\/?/,'');
+  if(data[ep]){hit(ep);return;}
+  let out;
+  if(c==='help')out='<span class="dim">endpoints:</span> whoami, now, stack, wins, hire\n<span class="dim">also try:</span> sudo hire hritika, coffee, clear';
+  else if(c==='clear'){typing++;screen.innerHTML='';return;}
+  else if(c.startsWith('sudo hire')){out='<span class="n">Permission granted.</span> Opening the contact section…';setTimeout(()=>{$('#contact').scrollIntoView({behavior:reduce?'auto':'smooth'});confetti();},900);}
+  else if(c==='coffee'||c==='chai')out='<span class="s">418 I\'m a teapot.</span> Chai it is. ☕';
+  else if(c==='ls')out='whoami  now  stack  wins  hire';
+  else if(c==='rm -rf /')out='<span class="s">Nice try.</span> Audit logging is on.';
+  else out='<span class="s">404</span> command not found: '+esc(raw)+'\n<span class="dim">type help to see what works</span>';
+  typing++;
+  screen.innerHTML='<span class="cmd">$ '+esc(raw)+'</span>\n'+out+'\n<span class="caret"></span>';
+});
+
+/* ---------- races ---------- */
+const races=[
+  {title:"Dexter analytics homepage",note:"Organization-wide analytics dashboard I built and ran at Sportsbaazi.",cut:.60,base:2.6},
+  {title:"Daily Business Report",note:"Rebuilt the pipeline from PHP into containerized Python and Docker.",cut:.75,base:2.8},
+  {title:"Internshala page loads",note:"A performance revamp across key platform pages.",cut:.30,base:2.2}
+];
+const rWrap=$('#races');
+races.forEach((r,i)=>{
+  const el=document.createElement('div');el.className='race';
+  el.innerHTML=`<div><h3>${r.title}</h3><p>${r.note}</p></div>
+  <div class="lanes">
+    <div class="lane old"><span>Before</span><div class="track"><div class="fill"></div></div><span class="time">0.0s</span></div>
+    <div class="lane new"><span>After</span><div class="track"><div class="fill"></div></div><span class="time">0.0s</span></div>
+  </div>
+  <div class="race-side"><div class="big">−${Math.round(r.cut*100)}%</div><button class="run" type="button">Run</button></div>`;
+  rWrap.appendChild(el);
+  r.el=el;
+  el.querySelector('.run').addEventListener('click',()=>run(r));
+});
+function run(r){
+  const btn=r.el.querySelector('.run');btn.disabled=true;
+  const big=r.el.querySelector('.big');big.classList.remove('on');
+  const [oldL,newL]=r.el.querySelectorAll('.lane');
+  const dur={old:r.base,new:r.base*(1-r.cut)};
+  const start=performance.now();
+  (function frame(now){
+    const t=(now-start)/1000;
+    [[oldL,dur.old],[newL,dur.new]].forEach(([l,d])=>{
+      const p=reduce?1:Math.min(1,t/d);
+      l.querySelector('.fill').style.width=(p*100)+'%';
+      l.querySelector('.time').textContent=(p*d).toFixed(1)+'s';
+    });
+    if(!reduce&&t>=dur.new)big.classList.add('on');
+    if(!reduce&&t<dur.old)requestAnimationFrame(frame);
+    else{big.classList.add('on');btn.disabled=false;btn.textContent='Run again';}
+  })(start);
+}
+$('#raceAll').addEventListener('click',()=>races.forEach(run));
+
+/* ---------- career ---------- */
+const roles=[
+  {co:"PeopleGrove",title:"Software Engineer 2",when:"Sept 2025 – Present",where:"Gurgaon / Remote",tag:"Now",items:[
+    ["POD leadership & product delivery","Primary engineer for my POD, building CORE ELMS, a clinical experiential education LMS used across Nursing, Pharmacy and Allied Health. Led sprint delivery and onboarded and mentored 3 engineers."],
+    ["AI-augmented tooling","Integrated Claude and Cursor with custom MCP servers and agent skills to speed up refactoring, context parsing and test generation across monolithic codebases."],
+    ["E-signatures & accessibility","Architected multi-provider e-signature integrations with DocuSign and Adobe Sign, and brought the platform to full WCAG 2.2 compliance."],
+    ["Full-stack modernization & RBAC","Led a phased migration of legacy PHP pages to component-driven React, and engineered granular role-based access for Admins, Faculty and Students."]]},
+  {co:"Sportsbaazi",title:"Software Engineer 2",when:"May 2023 – Aug 2025",where:"Delhi, India",tag:"Baazi Games",items:[
+    ["Analytics engine & upgrades","Built and ran Dexter, the organization-wide analytics dashboard, cutting homepage latency by 60%. Led framework upgrades from Laravel 5.7 to 10.x and PHP 7.3 to 8.4."],
+    ["ETL & pipeline optimization","Moved the Daily Business Report pipeline from PHP to containerized Python and Docker, cutting runtime by 75%, and tuned high-volume ETL workflows and queries."],
+    ["Security & monitoring","Added database-level audit logging for data compliance and rolled out standard monitoring and alerting, reducing downtime and cloud costs."]]},
+  {co:"Internshala",title:"Software Engineer",when:"May 2021 – May 2023",where:"Gurgaon, India",tag:"2 years",items:[
+    ["Platform optimization & growth","Led performance revamps that cut page load times by 30%. Built UTM-driven coupon attribution and automated Email and WhatsApp onboarding."],
+    ["Frameworks & internal tools","Built a reusable promotional event framework for recurring campaigns, integrated Google OAuth, and created a schema-validated data entry tool for Product Managers."]]},
+  {co:"Vaibhav Global Ltd",title:"Graduate Engineer Trainee",when:"May 2020 – May 2021",where:"Jaipur, India",tag:"First job",items:[
+    ["Automation & workflow tools","Automated employee exit clearances with the No Dues Dashboard, and built Innov8, an ideation portal with tiered admin review."]]}
+];
+const stops=$('#stops'),roleEl=$('#role');
+roles.forEach((r,i)=>{
+  const li=document.createElement('li');
+  li.innerHTML=`<button role="tab" id="tab${i}" aria-controls="role" aria-selected="${i===0}"><strong>${r.co}</strong><small>${r.when}</small></button>`;
+  stops.appendChild(li);
+  li.querySelector('button').addEventListener('click',()=>showRole(i));
+});
+stops.addEventListener('keydown',e=>{
+  const tabs=[...stops.querySelectorAll('button')];const i=tabs.indexOf(document.activeElement);
+  if(i<0)return;let j=null;
+  if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%tabs.length;
+  if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+  if(j!==null){e.preventDefault();tabs[j].focus();showRole(j);}
+});
+function showRole(i){
+  const r=roles[i];
+  stops.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-selected',k===i));
+  roleEl.setAttribute('aria-labelledby','tab'+i);
+  roleEl.innerHTML=`<header><div><h3>${r.title}</h3><p class="meta">${r.co}, ${r.where}. ${r.when}</p></div><span class="badge">${r.tag}</span></header>
+  <ul>${r.items.map(([h,t])=>`<li><b>${h}</b><span>${t}</span></li>`).join('')}</ul>`;
+  roleEl.classList.remove('swap');void roleEl.offsetWidth;roleEl.classList.add('swap');
+}
+showRole(0);
+
+/* ---------- skills ---------- */
+const groups=[
+  ["Languages & web",["PHP","JavaScript","Python","HTML5","CSS3","SQL"]],
+  ["Frameworks & libraries",["Laravel","React","Vue.js","CodeIgniter"]],
+  ["Data, cloud & DevOps",["MySQL","DynamoDB","AWS","Docker"]],
+  ["AI & developer tooling",["Claude","Cursor","MCP","Agent skills","GitHub Copilot"]],
+  ["Architecture & governance",["REST APIs","RBAC","WCAG 2.2","Microservices","ETL pipelines"]],
+  ["Platforms & tools",["DocuSign API","Adobe Sign API","Git","Jira","Notion"]]
+];
+const usedAt={
+  "PHP":[0,1],"Python":[1],"Laravel":[1],"React":[0],"Docker":[1],
+  "Claude":[0],"Cursor":[0],"MCP":[0],"Agent skills":[0],
+  "RBAC":[0],"WCAG 2.2":[0],"ETL pipelines":[1],"DocuSign API":[0],"Adobe Sign API":[0]
+};
+const gWrap=$('#groups'),wList=$('#whereList');
+roles.forEach(r=>{const li=document.createElement('li');li.textContent=r.co;wList.appendChild(li);});
+groups.forEach(([g,list])=>{
+  const d=document.createElement('div');d.className='group';
+  d.innerHTML=`<h3>${g}</h3><div class="chips">${list.map(s=>`<button class="chip" aria-pressed="false">${s}</button>`).join('')}</div>`;
+  gWrap.appendChild(d);
+});
+gWrap.addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  const on=b.getAttribute('aria-pressed')!=='true';
+  gWrap.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+  const lis=[...wList.children];lis.forEach(l=>l.classList.remove('hit'));
+  if(!on){$('#whereTitle').textContent='Pick a skill';$('#whereNote').textContent='The roles where I used it will light up.';return;}
+  b.setAttribute('aria-pressed','true');
+  const s=b.textContent;const at=usedAt[s];
+  $('#whereTitle').textContent=s;
+  if(at){at.forEach(i=>lis[i].classList.add('hit'));$('#whereNote').textContent='Highlighted where it shows up in my work.';}
+  else $('#whereNote').textContent='Part of my everyday toolkit across roles.';
+});
+
+/* ---------- Nourrish toy ---------- */
+let kcal=0;const C=314.16;
+$('#food').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const k=+b.dataset.k;kcal=k===0?0:kcal+k;
+  const p=Math.min(1,kcal/2000);
+  const fg=$('#ringFg');fg.style.strokeDashoffset=C*(1-p);
+  fg.style.stroke=kcal>2000?'var(--pink)':'var(--mint)';
+  $('#kcal').textContent=kcal;
+  if(kcal>2000&&kcal-k<=2000)toast('Over your daily goal. The chai was worth it.');
+});
+
+/* ---------- Expense toy ---------- */
+const cats=[["Food","var(--sun)"],["Travel","var(--cobalt)"],["Books","var(--mint)"],["Fun","var(--pink)"]];
+const spent=[0,0,0,0];const bars=$('#bars');
+cats.forEach(([n,c])=>{const d=document.createElement('div');d.className='bar';d.innerHTML=`<i style="background:${c};height:4px"></i><small>${n}</small>`;bars.appendChild(d);});
+$('#spend').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const c=+b.dataset.c;
+  if(c<0)spent.fill(0);else spent[c]+=500;
+  const tot=spent.reduce((a,b)=>a+b,0);
+  [...bars.children].forEach((d,i)=>d.querySelector('i').style.height=Math.max(4,Math.min(90,spent[i]/2500*90))+'px');
+  $('#spendTotal').textContent=`Spent ₹${tot.toLocaleString('en-IN')} of ₹5,000`+(tot>5000?'. Budget alert!':'');
+  if(tot>5000&&tot-500<=5000)toast('Budget exceeded. The tracker would have warned you.');
+});
+
+/* ---------- contact ---------- */
+$('#copyEmail').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText('mathurhritika@gmail.com');toast('Email copied');}
+  catch{toast('Copy failed. The address is mathurhritika@gmail.com');}
+});
+
+/* ---------- draggable stickers ---------- */
+const stickerBox=$('#stickers');
+stickerBox.querySelectorAll('.sticker').forEach(st=>{
+  let sx,sy,ox,oy,moved=false;
+  st.addEventListener('pointerdown',e=>{
+    e.preventDefault();st.setPointerCapture(e.pointerId);moved=false;
+    sx=e.clientX;sy=e.clientY;ox=st.offsetLeft;oy=st.offsetTop;
+    st.classList.add('dragging');
+  });
+  st.addEventListener('pointermove',e=>{
+    if(!st.classList.contains('dragging'))return;
+    const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;
+    st.style.left=(ox+dx)+'px';st.style.top=(oy+dy)+'px';
+  });
+  const end=()=>{
+    if(!st.classList.contains('dragging'))return;
+    st.classList.remove('dragging');
+    if(!moved){st.classList.remove('wiggle');void st.offsetWidth;st.classList.add('wiggle');toast(st.dataset.tip);}
+  };
+  st.addEventListener('pointerup',end);st.addEventListener('pointercancel',end);
+});
+
+/* ---------- confetti + easter egg ---------- */
+function confetti(){
+  if(reduce){toast('🎉');return;}
+  const box=document.createElement('div');box.className='confetti';document.body.appendChild(box);
+  const cols=['#FFD23F','#FF4F9A','#2E5BFF','#3DD6A8'];
+  for(let i=0;i<90;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'vw';p.style.background=cols[i%4];
+    p.style.animationDuration=(1.8+Math.random()*1.6)+'s';p.style.animationDelay=(Math.random()*.4)+'s';box.appendChild(p);}
+  setTimeout(()=>box.remove(),4000);
+}
+const seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown'];let pos=0;
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  pos=e.key===seq[pos]?pos+1:(e.key===seq[0]?1:0);
+  if(pos===seq.length){pos=0;confetti();toast('You found it. Hritika would like to work with you.');}
+});
+})();
+</script>
+</body>
+</html>
